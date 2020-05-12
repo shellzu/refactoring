@@ -7,7 +7,7 @@ module.exports = function statement (invoice, plays) {
                         minimumFractionDigits: 2 }).format;
     
     for (let perf of invoice.performances) {
-        let thisAmount = amountFor(perf, playFor(perf));
+        let thisAmount = amountFor(perf);
 
         // ボリューム特典のポイントを加算
         volumeCredits += Math.max(perf.audience -30, 0);
@@ -17,7 +17,7 @@ module.exports = function statement (invoice, plays) {
         result += `  ${playFor(perf).name}: ${format(thisAmount/100)} (${perf.audience} seats)\n`;
         totalAmount += thisAmount;
     }
-    function amountFor(aPerformance, play) {
+    function amountFor(aPerformance) {
         let result = 0;
         switch (playFor(aPerformance).type) {
             case "tragedy":
