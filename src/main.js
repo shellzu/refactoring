@@ -14,8 +14,8 @@ module.exports = function statement (invoice, plays) {
         // 喜劇のときは10人につき、さらにポイントを加算
         if ("comedy" === playFor(perf).type) volumeCredits += Math.floor(perf.audience / 5);
         // 注文の内訳を出力
-        result += `  ${playFor(perf).name}: ${format(thisAmount/100)} (${perf.audience} seats)\n`;
-        totalAmount += thisAmount;
+        result += `  ${playFor(perf).name}: ${format(amountFor(perf)/100)} (${perf.audience} seats)\n`;
+        totalAmount += amountFor(perf);
     }
     function amountFor(aPerformance) {
         let result = 0;
