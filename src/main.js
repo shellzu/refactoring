@@ -4,7 +4,7 @@ module.exports = function statement (invoice, plays) {
         // 注文の内訳を出力
         result += `  ${playFor(perf).name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
     }
-    result += `Amount owed is ${usd(appleSauce())}\n`;
+    result += `Amount owed is ${usd(totalAmount())}\n`;
     result += `You earned ${totalVolumeCredits()} credits\n`;
     return result;
 
@@ -55,11 +55,11 @@ module.exports = function statement (invoice, plays) {
         return volumeCredits;
     }
 
-    function appleSauce() {
-        let totalAmount = 0;
+    function totalAmount() {
+        let result = 0;
         for(let perf of invoice.performances) {
-            totalAmount += amountFor(perf);
+            result += amountFor(perf);
         }
-        return totalAmount;
+        return result;
     }
 }
