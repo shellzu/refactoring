@@ -7,12 +7,8 @@ module.exports = function statement (invoice, plays) {
                         minimumFractionDigits: 2 }).format;
     
     for (let perf of invoice.performances) {
-        let thisAmount = amountFor(perf);
+        volumeCredits += volumeCreditsFor(perf);
 
-        // ボリューム特典のポイントを加算
-        volumeCredits += Math.max(perf.audience -30, 0);
-        // 喜劇のときは10人につき、さらにポイントを加算
-        if ("comedy" === playFor(perf).type) volumeCredits += Math.floor(perf.audience / 5);
         // 注文の内訳を出力
         result += `  ${playFor(perf).name}: ${format(amountFor(perf)/100)} (${perf.audience} seats)\n`;
         totalAmount += amountFor(perf);
@@ -41,6 +37,13 @@ module.exports = function statement (invoice, plays) {
 
     function playFor(aPerformance) {
         return plays[aPerformance.playID];
+    }
+
+    function volumeCreditsFor(perf) {
+        let volumeCredits = 0;
+        volumeCredits += Math.max(perf.audience -30, 0);
+        if ("comedy" === playFor(perf).type) volumeCredits += Math.floor(perf.audience / 5)
+        return volumeCredits;
     }
 
     result += `Amount owed is ${format(totalAmount/100)}\n`;
