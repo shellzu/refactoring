@@ -12,7 +12,6 @@ const invoicesJson = fs.readFileSync(path.join(srcPath, "invoices.json"), { enco
 const invoices = JSON.parse(invoicesJson);
 const invoice = invoices[0];
 
-
 function testStatement() {
   const result = statement(invoice, plays);
   const expect =
