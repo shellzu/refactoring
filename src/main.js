@@ -46,10 +46,6 @@ function renderPlainText (data, invoice, plays) {
     result += `Amount owed is ${usd(totalAmount())}\n`;
     result += `You earned ${totalVolumeCredits()} credits\n`;
     return result;
-
-    function playFor(aPerformance) {
-        return plays[aPerformance.playID];
-    }
 }
 
 function renderPlainText (data, invoice, plays) {
