@@ -14,16 +14,6 @@ module.exports = function statement (invoice, plays) {
     function playFor(aPerformance) {
         return plays[aPerformance.playID];
     }
-}
-function renderPlainText (data, invoice, plays) {
-    let result = `Statement for ${data.customer}\n`;
-    for (let perf of data.performances) {
-        // 注文の内訳を出力
-        result += `  ${perf.play.name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
-    }
-    result += `Amount owed is ${usd(totalAmount())}\n`;
-    result += `You earned ${totalVolumeCredits()} credits\n`;
-    return result;
 
     function amountFor(aPerformance) {
         let result = 0;
@@ -46,6 +36,16 @@ function renderPlainText (data, invoice, plays) {
         }
         return result;
     }
+}
+function renderPlainText (data, invoice, plays) {
+    let result = `Statement for ${data.customer}\n`;
+    for (let perf of data.performances) {
+        // 注文の内訳を出力
+        result += `  ${perf.play.name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
+    }
+    result += `Amount owed is ${usd(totalAmount())}\n`;
+    result += `You earned ${totalVolumeCredits()} credits\n`;
+    return result;
 
     function playFor(aPerformance) {
         return plays[aPerformance.playID];
