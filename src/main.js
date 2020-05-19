@@ -81,11 +81,11 @@ function renderPlainText (data, invoice, plays) {
     }
 
     function totalVolumeCredits() {
-        let volumeCredits = 0;
+        let result = 0;
         for(let perf of data.performances) {
-            volumeCredits += volumeCreditsFor(perf);
+            result += perf.volumeCredits;
         }
-        return volumeCredits;
+        return result;
     }
 
     function totalAmount() {
