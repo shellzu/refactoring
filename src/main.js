@@ -14,7 +14,6 @@ module.exports = function statement (invoice, plays) {
         return plays[aPerformance.playID];
     }
 }
-
 function renderPlainText (data, invoice, plays) {
     let result = `Statement for ${data.customer}\n`;
     for (let perf of data.performances) {
