@@ -42,7 +42,7 @@ function renderPlainText(data, plays) {
     let result = `Statement for ${data.customer}\n`;
     for (let perf of data.performances) {
         // 注文の内訳を出力
-        result += `  ${perf.play.name}: ${usd(amountFor(perf))} (${perf.audience} seats)\n`;
+        result += `  ${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`;
     }
     result += `Amount owed is ${usd(totalAmount())}\n`;
     result += `You earned ${totalVolumeCredits()} credits\n`;
@@ -94,7 +94,7 @@ function renderPlainText(data, plays) {
     function totalAmount() {
         let result = 0;
         for(let perf of data.performances) {
-            result += amountFor(perf);
+            result += perf.amount;
         }
         return result;
     }
