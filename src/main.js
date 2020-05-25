@@ -79,12 +79,4 @@ function renderPlainText(data, plays) {
             {style: "currency", currency: "USD",
             minimumFractionDigits: 2 }).format(aNumber / 100);
     }
-
-    function totalVolumeCredits() {
-        let volumeCredits = 0;
-        for(let perf of data.performances) {
-            volumeCredits += perf.volumeCredits;
-        }
-        return volumeCredits;
-    }
 }
