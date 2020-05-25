@@ -61,7 +61,7 @@ function renderPlainText(data, plays) {
         // 注文の内訳を出力
         result += `  ${perf.play.name}: ${usd(perf.amount)} (${perf.audience} seats)\n`;
     }
-    result += `Amount owed is ${usd(totalAmount())}\n`;
+    result += `Amount owed is ${usd(data.totalAmount)}\n`;
     result += `You earned ${totalVolumeCredits()} credits\n`;
     return result;
 
