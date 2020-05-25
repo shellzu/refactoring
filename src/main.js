@@ -78,12 +78,4 @@ function renderPlainText(data, plays) {
         }
         return volumeCredits;
     }
-
-    function totalAmount() {
-        let result = 0;
-        for(let perf of data.performances) {
-            result += perf.amount;
-        }
-        return result;
-    }
 }
