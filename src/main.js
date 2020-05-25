@@ -47,10 +47,6 @@ function renderPlainText(data, plays) {
         return result;
     }
 
-    function playFor(aPerformance) {
-        return plays[aPerformance.playID];
-    }
-
     function volumeCreditsFor(aPerformance) {
         let result = 0;
         result += Math.max(aPerformance.audience -30, 0);
