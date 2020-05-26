@@ -64,7 +64,7 @@ module.exports = function statement (invoice, plays) {
     }
 }
 
-function renderPlainText(data, plays) {
+function renderPlainText(data) {
     let result = `Statement for ${data.customer}\n`;
     for (let perf of data.performances) {
         // 注文の内訳を出力
