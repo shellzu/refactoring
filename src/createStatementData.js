@@ -19,10 +19,6 @@ module.exports = function createStatementData(invoice, plays) {
         return plays[aPerformance.playID];
     }
 
-    function amountFor(aPerformance) {
-        return new PerformanceCalculator(aPerformance, playFor(aPerformance)).amount;
-    }
-
     function volumeCreditsFor(aPerformance) {
         let result = 0;
         result += Math.max(aPerformance.audience -30, 0);
