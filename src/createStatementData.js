@@ -7,6 +7,7 @@ module.exports = function createStatementData(invoice, plays) {
     return result;
 
     function enrichPerformance(aPerformance) {
+        const calculator = new PerformanceCalculator(aPerformance);
         const result = Object.assign({}, aPerformance);
         result.play = playFor(result);
         result.amount = amountFor(result);
@@ -61,5 +62,11 @@ module.exports = function createStatementData(invoice, plays) {
             volumeCredits += perf.volumeCredits;
         }
         return volumeCredits;
+    }
+}
+
+class PerformanceCalculator {
+    constructor(aPerformance) {
+        this.aPerformance = aPerformance;
     }
 }
